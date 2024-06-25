@@ -1,0 +1,16 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+    .image {
+        width: 100%;
+        height: 470px;
+        background-image: url("{% static 'images/mowglipedia1.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+</style>
+<div class="image"></div>
+{% endblock %}
