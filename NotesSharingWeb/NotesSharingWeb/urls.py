@@ -24,6 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('about/', about ,name='about'),
     path('',index,name='index'),
+    path('contact/', contact, name='contact'),
+    path('login/', login, name='login'),
+    path('login_admin/', login_admin, name='login_admin'),
+
 ]
 
 if settings.DEBUG:

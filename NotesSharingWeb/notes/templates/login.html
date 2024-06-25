@@ -1,0 +1,28 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block body %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2 class="text-center">New User</h2>
+            <hr>
+            <p>By Creating an account with our website, you will be able to access all the notes inclusive of uploading and downloading of the notes and moreover further...</p>
+            <center><a href="#" class="btn btn-danger text-white  mt-5"> Create an Account </a>   </center>    
+        </div>
+        <div class="col-sm-6">
+            <h2 class="text-center">User Login</h2>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="">Email</label>
+                <input type="email" class="form-control" placeholder="Enter Email ID" name="Email ID">
+
+                <label for="">Password</label>
+                <input type="Password" class="form-control" placeholder="Enter Password" name="Password">
+                <center><input type="submit" class="btn btn-danger mt-2" value="Login"></center>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
