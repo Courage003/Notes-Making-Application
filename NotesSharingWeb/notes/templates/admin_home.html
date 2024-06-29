@@ -1,0 +1,80 @@
+{% extends "admin_nav.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+    .container1{
+        background-color: lightgrey;
+        border-radius: 8px;
+    }
+
+    h2,h4{
+        padding: 10px;
+    }
+
+    .mydiv:hover{
+        transform: translateY(-10px);
+    }
+
+    .glow{
+        font-size: 80px;
+        color: #fff;
+        text-align: center;
+        -webkit-animation: glow 1s ease-in-out infinite alternate;
+    }
+
+    @-webkit-keyframes glow{
+        from{
+            text-shadow:0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        }
+
+        to{
+            text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+
+    }
+
+    .footer{
+        background-color: white;
+    }
+
+</style>
+<br><br>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">5</h2>
+                <a href="#"><h4 class="text-dark">Pending Notes</h4></a>
+            </div>
+        </div>
+
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">5</h2>
+                <a href="#"><h4 class="text-dark">Accepted Notes</h4></a>
+            </div>
+        </div>
+
+
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">5</h2>
+                <a href="#"><h4 class="text-dark">Rejected Notes</h4></a>
+            </div>
+        </div>
+
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary">5</h2>
+                <a href="#"><h4 class="text-dark">All Notes</h4></a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<footer class="container mt-5 text-center">
+    <p style="font-size: 30pt; color: red; font-weight: bold">Copyright &copy;  <script>document.write(newDate().getFullYear())</script> All Rights Reserved
+    <span style="color: brown">|</span><span style="color:blue">This website is made with <i class="fas fa-heart icon-heart text-warning">  </i> by</span> <a class="glow" href="https://youtube.com/@mowglivloggers2003?si=9tPuPDmNxe4dMJeW" target="_blank"> Dhruv Rohatgi</a></p>
+</footer>
+{% endblock %}

@@ -25,9 +25,12 @@ urlpatterns = [
     path('about/', about ,name='about'),
     path('',index,name='index'),
     path('contact/', contact, name='contact'),
-    path('login/', login, name='login'),
+    path('login/', userlogin, name='login'),
     path('login_admin/', login_admin, name='login_admin'),
-
+    path('signup/', signup1, name='signup'),
+    path('admin_home/', admin_home, name='admin_home'),
+    path('logout/', Logout, name='logout'),
+    path('profile', profile, name='profile'),
 ]
 
 if settings.DEBUG:

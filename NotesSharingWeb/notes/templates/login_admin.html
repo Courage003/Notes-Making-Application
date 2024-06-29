@@ -1,6 +1,19 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block body %}
+{% if error == "no" %}
+<script>
+    alert('Logged In Successfully');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Invalid Login Credentials, Try Again");
+</script>
+{% endif %}
+
 <div class="container mt-5" style="background-color: whitesmoke">
     <div class="row">
         <div class="col-sm-6">
@@ -13,12 +26,12 @@
             
             <form action="" method="POST">
                 {% csrf_token %}
-                <label for="">Username</label>
-                <input type="text" class="form-control" placeholder="Enter UserName" name="UserName">
+                <label for="uname">Username</label>
+                <input type="text" class="form-control" placeholder="Enter UserName" name="uname" required>
 
-                <label for="">Password</label>
-                <input type="Password" class="form-control" placeholder="Enter Password" name="Password">
-                <center><input type="submit" class="btn btn-primary mt-2" value="Login"></center>
+                <label for="pwd">Password</label>
+                <input type="Password" class="form-control" placeholder="Enter Password" name="pwd" required>
+                <center><input type="submit" class="btn btn-primary mt-2" value="Login" href="{% url 'admin_home' %}"></center>
             </form>
         </div>
     </div>
