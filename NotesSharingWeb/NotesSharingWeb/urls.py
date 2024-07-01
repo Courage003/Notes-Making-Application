@@ -30,7 +30,8 @@ urlpatterns = [
     path('signup/', signup1, name='signup'),
     path('admin_home/', admin_home, name='admin_home'),
     path('logout/', Logout, name='logout'),
-    path('profile', profile, name='profile'),
+    path('profile/', profile, name='profile'),
+    path('changepassword/', changepassword, name='changepassword'),
 ]
 
 if settings.DEBUG:

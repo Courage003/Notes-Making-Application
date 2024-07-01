@@ -52,17 +52,18 @@ def login_admin(request):
 def signup1(request):
     error = ""
     if request.method == "POST":
-        f = request.POST['fname']
-        l = request.POST['lname']
-        p = request.POST['ph']
+        f = request.POST['first_name']
+        l = request.POST['last_name']
+        c = request.POST['contact']
         e = request.POST['emailid']
         pa = request.POST['password']
         b = request.POST['branch']
         r = request.POST['role']
 
         try:
-            user = User.objects.create_user(username=e, password=pa, fname =f,lname=l)
-            Signup.objects.create(user=user, ph=p, branch=b, role=r)
+            user = User.objects.create_user(username=e, email=e, password=pa, first_name =f,last_name=l)
+            Signup.objects.create(user=user, contact=c, branch=b, role=r)
+            user.save()
             error="no"
         except Exception as ex:
             print(ex)
@@ -88,6 +89,18 @@ def profile(request):
     
 
     user = User.objects.get(id=request.user.id)
-    data = Signup.objects.get(user= user)
+    data = Signup.objects.get(user = user)
     d = {'data': data, 'user':user}
     return render(request, 'profile.html', d)
+
+
+def changepassword(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    #login nhi kiya toh vaapis ajaao login page par
+    
+
+    user = User.objects.get(id=request.user.id)
+    data = Signup.objects.get(user = user)
+    d = {'data': data, 'user':user}
+    return render(request, 'changepassword.html', d)

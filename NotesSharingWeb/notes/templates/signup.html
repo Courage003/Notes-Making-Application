@@ -16,13 +16,13 @@
             <form action="{% url 'signup' %}" method="POST">
                 {% csrf_token %}
                 <label for="fname">First Name</label>
-                <input type="text" class="form-control" placeholder="Enter First Name" name="fname" required>
+                <input type="text" class="form-control" placeholder="Enter First Name" name="first_name" required>
 
                 <label for="lname">Last Name</label>
-                <input type="text" class="form-control" placeholder="Enter Last Name" name="lname" required>
+                <input type="text" class="form-control" placeholder="Enter Last Name" name="last_name" required>
 
                 <label for="ph">Contact</label>
-                <input type="text" class="form-control" placeholder="Enter Phone no." name="ph" required>
+                <input type="text" class="form-control" placeholder="Enter Phone no." name="contact" required>
 
                 <label for="emailid">Email ID</label>
                 <input type="email" class="form-control" placeholder="Enter Email ID" name="emailid" required>
