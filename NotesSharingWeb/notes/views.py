@@ -99,8 +99,19 @@ def changepassword(request):
         return redirect('login')
     #login nhi kiya toh vaapis ajaao login page par
     
+    error =""
+    if request.method=="POST":
+        o = request.POST['old']
+        n = request.POST['newp']
+        c = request.POST['confirm']
 
-    user = User.objects.get(id=request.user.id)
-    data = Signup.objects.get(user = user)
-    d = {'data': data, 'user':user}
-    return render(request, 'changepassword.html', d)
+        if c==n:
+            u = User.objects.get(username__exact=request.user.username)
+            u.set_password(n)
+            u.save()
+            error="no"
+
+        else:
+            error="yes"
+    d = {'error':error}    
+    return render(request, 'changepassword.html',d)
