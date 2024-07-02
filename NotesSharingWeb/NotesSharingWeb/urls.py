@@ -32,7 +32,9 @@ urlpatterns = [
     path('logout/', Logout, name='logout'),
     path('profile/', profile, name='profile'),
     path('changepassword/', changepassword, name='changepassword'),
-]
+    path('edit_profile/', edit_profile, name='edit_profile'),
+    path('upload_notes/', upload_notes, name='upload_notes'),
+]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

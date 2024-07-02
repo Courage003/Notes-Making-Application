@@ -2,7 +2,7 @@ from django .shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, logout, login
-
+from datetime import date
 def about(request):
     return render(request, 'about.html')
 
@@ -115,3 +115,68 @@ def changepassword(request):
             error="yes"
     d = {'error':error}    
     return render(request, 'changepassword.html',d)
+
+
+def edit_profile(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    #login nhi kiya toh vaapis ajaao login page par
+    
+
+    user = User.objects.get(id=request.user.id)
+    data = Signup.objects.get(user = user)
+    error = False
+    if request.method == 'POST':
+        f = request.POST['firstname']
+        l = request.POST['lastname']
+        c = request.POST['contact']
+        b = request.POST['branch']
+
+        user.first_name = f
+        user.last_name = l
+        data.contact = c
+        data.branch = b 
+
+        user.save()
+        data.save()
+        error = True
+    d = {'data': data, 'user':user, 'error': error}
+    return render(request, 'edit_profile.html', d)
+
+
+
+def upload_notes(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    error = ""
+    if request.method == "POST":
+        b = request.POST.get('branch')
+        s = request.POST.get('subject')
+        n = request.FILES.get('notesfile')
+        f = request.POST.get('filetype')
+        d = request.POST.get('description')
+        u = User.objects.filter(username=request.user.username).first()
+
+        if not (b and s and n and f and d):
+            error = "yes"
+        else:
+            try:
+                notes = Notes.objects.create(
+                    user=u,
+                    uploadingdate=date.today(),
+                    branch=b,
+                    subject=s,
+                    notesfile=n,
+                    filetype=f,
+                    description=d,
+                    status='Pending'
+                )
+                notes.save()
+                error = "no"
+            except Exception as e:
+                print(f"Error: {e}")
+                error = "yes"
+
+    d = {'error': error}
+    return render(request, 'upload_notes.html', d)

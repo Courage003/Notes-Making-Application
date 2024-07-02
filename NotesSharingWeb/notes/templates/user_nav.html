@@ -22,7 +22,7 @@
                 <a class="nav-link" href="{% url 'profile' %}">HOME</a>
             </li>
             <li class="navbar-item">
-                <a class="nav-link" href="#">UPLOAD NOTES</a>
+                <a class="nav-link" href="{% url 'upload_notes' %}">UPLOAD NOTES</a>
             </li>
             <li class="navbar-item">
                 <a class="nav-link" href="#">VIEW MY NOTES</a>
@@ -38,7 +38,7 @@
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Welcome {{request.user.fname}}</button>
                 <div class="dropdown-menu">
                     <a href="{% url 'profile' %}" class="dropdown-item">PROFILE</a>
-                    <a href="#" class="dropdown-item">EDIT PROFILE</a>
+                    <a href="{% url 'edit_profile' %}" class="dropdown-item">EDIT PROFILE</a>
                     <a href="{% url 'changepassword' %}" class="dropdown-item">CHANGE PASSWORD</a>
                 </div>
             </div>

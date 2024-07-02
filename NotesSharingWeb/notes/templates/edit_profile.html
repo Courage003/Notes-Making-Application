@@ -1,0 +1,69 @@
+{% extends "user_nav.html" %}
+{% load static %}
+{% block body %}
+
+<div class="container mt-5">
+    <h2 class="text-center">Edit Profile</h2>
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" id="firstname" value="{{ data.user.first_name }}" name="firstname">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Last Name</label>
+                        <input type="text" class="form-control" id="lastname" value="{{ data.user.last_name }}" name="lastname">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailid">Email ID</label>
+                    <input type="text" class="form-control" id="emailid" value="{{ data.user.username }}" name="emailid" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <input type="text" class="form-control" id="contact" value="{{ data.contact }}" name="contact">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="branch">Branch</label>
+                        <select class="form-control" id="branch" name="branch">
+                            <option value="Computer Science" {% if data.branch == 'Computer Science' %}selected{% endif %}>Computer Science</option>
+                            <option value="Electronics and Communication" {% if data.branch == 'Electronics and Communication' %}selected{% endif %}>Electronics and Communication</option>
+                            <option value="Electrical" {% if data.branch == 'Electrical' %}selected{% endif %}>Electrical</option>
+                            <option value="Electronics and Instrumentation" {% if data.branch == 'Electronics and Instrumentation' %}selected{% endif %}>Electronics and Instrumentation</option>
+                            <option value="Mechanical" {% if data.branch == 'Mechanical' %}selected{% endif %}>Mechanical</option>
+                            <option value="Civil" {% if data.branch == 'Civil' %}selected{% endif %}>Civil</option>
+                            <option value="Chemical" {% if data.branch == 'Chemical' %}selected{% endif %}>Chemical</option>
+                            <option value="Production" {% if data.branch == 'Production' %}selected{% endif %}>Production</option>
+                            <option value="Biotech" {% if data.branch == 'Biotech' %}selected{% endif %}>Biotech</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="current_branch">Current Branch</label>
+                        <input type="text" id="current_branch" value="{{ data.branch }}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="submit" value="Update" class="btn btn-primary mt-4 mb-2">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% if error %}
+<script>
+    alert('Profile Updated Successfully');
+    window.location = {% url 'profile' %};
+</script>
+{% endif %}
+
+{% endblock %}
