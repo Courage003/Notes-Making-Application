@@ -4,7 +4,7 @@
 {% if error == "no" %}
 <script>
     alert('Logged In Successfully');
-    window.location=('{% url 'admin_home' %}');
+    window.location = ('{% url 'admin_home' %}');
 </script>
 {% endif %}
 
@@ -14,27 +14,31 @@
 </script>
 {% endif %}
 
-<div class="container mt-5" style="background-color: whitesmoke">
-    <div class="row">
-        <div class="col-sm-6">
-            <img src="{% static 'css/images/admin login.png' %}" class="img-thumbnail my-2" style="width: 100%; height:345px" alt="">  
+<div class="container mt-5 p-4" style="background-color: whitesmoke; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <div class="row align-items-center">
+        <div class="col-lg-6">
+            <img src="{% static 'css/images/admin login.png' %}" class="img-fluid my-2" alt="Admin Login Image">  
         </div>
-        <div class="col-sm-6">
-            <h2 class="text-center">Admin Login</h2>
+        <div class="col-lg-6">
+            <h2 class="text-center mb-4">Admin Login</h2>
             <hr>
-            <p>Enter your username and password for accessing admin panel.</p>
+            <p class="text-center mb-4">Enter your username and password to access the admin panel.</p>
             
             <form action="" method="POST">
                 {% csrf_token %}
-                <label for="uname">Username</label>
-                <input type="text" class="form-control" placeholder="Enter UserName" name="uname" required>
-
-                <label for="pwd">Password</label>
-                <input type="Password" class="form-control" placeholder="Enter Password" name="pwd" required>
-                <center><input type="submit" class="btn btn-primary mt-2" value="Login" href="{% url 'admin_home' %}"></center>
+                <div class="form-group">
+                    <label for="uname">Username</label>
+                    <input type="text" class="form-control" placeholder="Enter Username" name="uname" required>
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter Password" name="pwd" required>
+                </div>
+                <div class="text-center">
+                    <input type="submit" class="btn btn-primary mt-3 w-100" value="Login">
+                </div>
             </form>
         </div>
     </div>
 </div>
-
 {% endblock %}

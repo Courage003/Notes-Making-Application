@@ -2,11 +2,12 @@
 {% load static %}
 {% block body %}
 <div class="container mt-5">
+    <h2 class="text-center">Upload Notes</h2>
+            <hr>
     <div class="row">
       
         <div class="col-sm-6">
-            <h2 class="text-center">Upload Notes</h2>
-            <hr>
+            
             
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
@@ -33,12 +34,12 @@
                 <label>File Type</label>
                 <select class="form-control"  name="filetype">
                     <option value="">---Select File Type---</option>
-                    <option value="Computer Science">PDF</option>
-                    <option value="Electronics and Communication">PPT</option>
-                    <option value="Electrical">DOCX</option>
-                    <option value="Electronics and Instrumentation">TXT</option>
-                    <option value="Mechanical">Image</option>
-                    <option value="Civil">Zip/RAR</option>
+                    <option value="PDF">PDF</option>
+                    <option value="PPT">PPT</option>
+                    <option value="DOCX">DOCX</option>
+                    <option value="TXT">TXT</option>
+                    <option value="Image">Image</option>
+                    <option value="Zip/RAR">Zip/RAR</option>
                     
                 </select>   
                 <label>Description</label>
@@ -50,8 +51,7 @@
         </div>
         <div class="col-sm-6">
             
-            <p>By Creating an account with our website, you will be able to access all the notes inclusive of uploading and downloading of the notes and moreover further...</p>
-            <center><a href="{% url 'login' %}" class="btn btn-danger text-white  mt-5"> Login </a></center>    
+            <img src="{% static 'css/images/Upload notes.jpg' %}" style="width: 100%; height: 400px" class="mt-2" alt="">
         </div>
     </div>
 </div>
@@ -59,7 +59,7 @@
 {% if error == "no" %}
 <script>
     alert('Notes Uploaded Successfully');
-
+    
 </script>
 {% endif %}
 

@@ -1,0 +1,45 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.css">
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="text-center">Assign Status</h2>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="notesid">Notes ID</label>
+                    <input type="text" id="notesid" name="notesid" class="form-control" value="{{ notes.id }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" class="form-control">
+                        <option value="Accept">Accept</option>
+                        <option value="Reject">Reject</option>
+                    </select>
+                </div>
+                
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% if error == "no" %}
+<script>
+    alert('Status Updated Successfully');
+    window.location = '{% url 'all_notes' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert("Something went wrong, Try Again");
+</script>
+{% endif %}
+{% endblock %}

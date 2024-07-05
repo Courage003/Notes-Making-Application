@@ -2,53 +2,72 @@
 {% load static %}
 {% block body %}
 
+<style>
+    .profile-info {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .profile-info hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .profile-info .col-md-6 {
+        font-weight: bold;
+    }
+
+    .profile-info .btn-edit {
+        margin-top: 20px;
+    }
+</style>
+
 <div class="container mt-5">
-    <h2 class="text-center"> PROFILE</h2>
+    <h2 class="text-center">Profile</h2>
     <hr>
 
-    <div class="row">
-        <hr>
-        <div class="col-md-6">
-            <b>Full Name :</b>
+    <div class="profile-info">
+        <div class="row">
+            <div class="col-md-6">
+                <span>Full Name:</span>
+            </div>
+            <div class="col-md-6" style="text-transform: capitalize;">
+                {{ data.user.first_name }} {{ data.user.last_name }}
+            </div>
         </div>
-        <div class="col-md-6" style="text-transform : capitalize">
-            {{data.user.first_name}} {{data.user.last_name}}
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <span>Email ID:</span>
+            </div>
+            <div class="col-md-6">
+                {{ data.user.username }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <span>Contact:</span>
+            </div>
+            <div class="col-md-6">
+                {{ data.contact }}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <span>Branch:</span>
+            </div>
+            <div class="col-md-6">
+                {{ data.branch }}
+            </div>
         </div>
     </div>
-<hr>
-    <div class="row">
-        <hr>
-        <div class="col-md-6">
-            <b>Email Id :</b>
-        </div>
-        <div class="col-md-6" >
-            {{data.user.username}}
-        </div>
-    </div>
-    <hr>
 
-    <div class="row">
-        <hr>
-        <div class="col-md-6">
-            <b>Contact :</b>
-        </div>
-        <div class="col-md-6" >
-            {{data.contact}}
-        </div>
-    </div>
-<hr>
-    <div class="row">
-        <hr>
-        <div class="col-md-6">
-            <b>Branch :</b>
-        </div>
-        <div class="col-md-6" >
-            {{data.branch}}
-        </div>
-    </div>
-    <a href="{% url 'edit_profile' %}" class="btn btn-primary mt-5">Edit Profile</a>
+    <a href="{% url 'edit_profile' %}" class="btn btn-primary btn-edit">Edit Profile</a>
 </div>
-
-
 
 {% endblock %}

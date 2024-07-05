@@ -10,71 +10,147 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        position: relative;
+        opacity: 0.8; /* Adjust transparency here */
+    }
+
+    .transparent-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 8px;
+    }
+
+    .transparent-box p {
+        font-size: 40px; /* Increase font size for Mowglipedia */
+        margin-bottom: 0;
+    }
+
+    .steps-container {
+        padding: 50px 0;
+        background-color: #f9f9f9;
+    }
+
+    .box1 {
+        text-align: center;
+        padding: 20px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        min-height: 250px;
+    }
+
+    .box1:hover {
+        transform: translateY(-10px);
+    }
+
+    .halfcircle {
+        background-color: #2c3e50;
+        color: white;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        border-radius: 50%;
+        margin: 0 auto;
+        font-size: 30px;
+    }
+
+    .halfcircleBottom {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    footer {
+        background-color: #333333;
+        color: white;
+        padding: 40px 0;
+    }
+
+    footer h5 {
+        color: #ffffff;
+    }
+
+    footer ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    footer ul li {
+        margin-bottom: 10px;
+    }
+
+    footer a {
+        color: #ffffff;
+    }
+
+    footer a:hover {
+        text-decoration: none;
+        color: #e67e22;
     }
 </style>
+
 <div class="image">
     <div class="transparent-box">
-        <p>Mowglipedia</p>
+        <p style="font-size: 60px;">Mowglipedia</p> <!-- Adjust font size here -->
     </div>
 </div>
+
 <h4 class="text-center text-danger mt-5 mb-5">Just 4 steps to follow</h4>
-<div class="container">
+
+<div class="container steps-container">
     <div class="row">
         <div class="col-sm-3">
             <div class="box1">
                 <p class="halfcircle">
-                    <i class="fa-sharp fa-solid fa-circle-user mt-4" style="font-size: 40px"></i>
+                    <i class="fas fa-user-circle mt-4" style="font-size: 40px;"></i>
                 </p>
                 <p class="halfcircleBottom">
                     Create Account
                 </p>
-
             </div>
-            
         </div>
 
         <div class="col-sm-3">
             <div class="box1">
                 <p class="halfcircle">
-                    <i class="fa-sharp fa-solid fa-sign-in-alt mt-4" style="font-size: 40px"></i>
+                    <i class="fas fa-sign-in-alt mt-4" style="font-size: 40px;"></i>
                 </p>
                 <p class="halfcircleBottom">
                     Login
                 </p>
-
             </div>
-            
         </div>
 
         <div class="col-sm-3">
             <div class="box1">
                 <p class="halfcircle">
-                    <i class="fa-sharp fa-solid fa-upload mt-4" style="font-size: 40px"></i>
+                    <i class="fas fa-cloud-upload-alt mt-4" style="font-size: 40px;"></i>
                 </p>
                 <p class="halfcircleBottom">
                     Upload Notes
                 </p>
-
             </div>
-            
         </div>
 
         <div class="col-sm-3">
             <div class="box1">
                 <p class="halfcircle">
-                    <i class="fa-sharp fa-solid fa-download mt-4" style="font-size: 40px"></i>
+                    <i class="fas fa-cloud-download-alt mt-4" style="font-size: 40px;"></i>
                 </p>
                 <p class="halfcircleBottom">
                     Download Notes
                 </p>
-
             </div>
-            
         </div>
     </div>
 </div>
-<br>
-<br>
 
 <footer>
     <div class="container">
@@ -86,9 +162,9 @@
             <div class="col-md-4">
                 <h5>Quick Links</h5>
                 <ul class="list-unstyled">
-                    <li><a href="">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -99,9 +175,10 @@
         </div>
         <div class="row mt-3">
             <div class="col-md-12">
-                <p>&copy; 2024 Mowgli Vloggers. All rights reserved.</p>
+                <p>&copy; {% now "Y" %} Mowgli Vloggers. All rights reserved.</p>
             </div>
         </div>
     </div>
 </footer>
+
 {% endblock %}

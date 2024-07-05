@@ -1,0 +1,67 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.css">
+<div class="container mt-5">
+    <h2 class="text-center">View Users</h2>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped" id="example">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Full Name</th>
+                    <th>Email ID</th>
+                    <th>Contact</th>
+                    <th>Branch</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ user.user.first_name }} {{ user.user.last_name }}</td>
+                    <td>{{ user.user.username }}</td>
+                    <td>{{ user.contact }}</td>
+                    <td>{{ user.branch }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>
+                        <a href="{% url 'delete_users' user.user.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "pagingType": "full_numbers", // Enable full pagination control
+            "order": [], // Disable initial sorting
+            "responsive": true, // Enable responsive features
+            "language": {
+                "search": "Filter:",
+                "lengthMenu": "Show _MENU_ entries per page",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "infoEmpty": "No entries found",
+                "infoFiltered": "(filtered from _MAX_ total entries)",
+                "paginate": {
+                    "first": "First",
+                    "last": "Last",
+                    "next": "Next",
+                    "previous": "Previous"
+                }
+            }
+        });
+    });
+</script>
+
+{% endblock %}

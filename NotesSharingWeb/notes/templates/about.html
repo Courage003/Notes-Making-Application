@@ -1,21 +1,32 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block body %}
-<div style="background-color: green ; width: 100%; height: 100px">
-    <h3 class="text-white container pt-3">About Us</h2>
+<div class="bg-success text-white text-center py-5">
+    <h3>About Us</h3>
 </div>
 
-<div class="container">
-    <img src="{% static 'css/images/ABOUT US.png' %}" style="width: 100%" alt="">
-    <h2>About Us</h2>
-    <hr>
-    <p>Hello Friends.... <br>
-        <p>Welcome to the Study Notes Sharing Site developed by Mowgli Vloggers using Python, Django, HTML, CSS, Bootstrap, and SQLite.</p>
-        <p>This platform is designed to help students share and access study notes easily and efficiently. We aim to foster a collaborative learning environment where knowledge can be freely shared.</p>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="{% static 'css/images/ABOUT US.png' %}" class="img-fluid mb-4" alt="About Us Image">
+        </div>
+        <div class="col-12 col-md-6">
+            <h2>About Us</h2>
+            <hr>
+            <p>Hello Friends....</p>
+            <p>Welcome to the Study Notes Sharing Site developed by Mowgli Vloggers using Python, Django, HTML, CSS, Bootstrap, and SQLite.</p>
+            <p>This platform is designed to help students share and access study notes easily and efficiently. We aim to foster a collaborative learning environment where knowledge can be freely shared.</p>
+        </div>
+    </div>
+    
+    <div class="mt-5">
         <h2>About Mowgli Vloggers</h2>
         <hr>
         <p>The Mowgli Vloggers channel was founded by Dhruv Rohatgi, a 4th-year student from NIT Agartala. The channel focuses on educational content, technology tutorials, and insights into student life. Dhruv's dedication to education and technology has been the driving force behind this project.</p>
+    </div>
 </div>
-<br><br>
+
+<!-- Add some spacing at the bottom of the page -->
+<div class="mb-5"></div>
 
 {% endblock %}

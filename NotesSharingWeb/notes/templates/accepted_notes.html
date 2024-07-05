@@ -1,0 +1,56 @@
+{% extends 'admin_nav.html' %}
+{% load static %}
+{% block body %}
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap4.css">
+<div class="container mt-5">
+    <h2 class="text-center">View Accepted Notes</h2>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered" id="example">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Uploaded By</th>
+                    <th>Uploading Date</th>
+                    <th>Branch</th>
+                    <th>Subject</th>
+                    <th>Download Notes</th>
+                    <th>File Type</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Assign Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for note in notes %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ note.user.username }}</td>
+                    <td>{{ note.uploadingdate }}</td>
+                    <td>{{ note.branch }}</td>
+                    <td>{{ note.subject }}</td>
+                    <td><a href="{{ note.notesfile.url }}" class="btn btn-success" download>Download</a></td>
+                    <td>{{ note.filetype }}</td>
+                    <td>{{ note.description }}</td>
+                    <td>{{ note.status }}</td>
+                    <td><a href="{% url 'assign_status' note.id %}" class="btn btn-primary">Assign&nbsp;Status</a></td>
+                    <td><a href="{% url 'delete_mynotes' note.id %}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap4.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
+{% endblock %}

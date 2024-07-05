@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 
 # Create your models here.
 class Signup(models.Model):
@@ -14,7 +15,7 @@ class Signup(models.Model):
 
 class Notes(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    uploadingdate = models.CharField(max_length=30)
+    uploadingdate = models.DateField(default=date.today())
     branch = models.CharField(max_length=30)
     subject = models.CharField(max_length=30)
     notesfile = models.FileField(null=True)
