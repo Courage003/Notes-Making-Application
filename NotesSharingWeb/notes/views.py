@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth import authenticate, logout, login
 from datetime import date
+import logging
+
+logger = logging.getLogger(__name__)
 def about(request):
     return render(request, 'about.html')
 
@@ -150,33 +153,19 @@ def upload_notes(request):
         return redirect('login')
 
     error = ""
-    if request.method == "POST":
-        b = request.POST.get('branch')
-        s = request.POST.get('subject')
+    if request.method == 'POST':
+        b = request.POST['branch']
+        s = request.POST['subject']
         n = request.FILES.get('notesfile')
-        f = request.POST.get('filetype')
-        d = request.POST.get('description')
+        f = request.POST['filetype']
+        d = request.POST['description']
         u = User.objects.filter(username=request.user.username).first()
 
-        if not (b and s and n and f and d):
-            error = "yes"
-        else:
-            try:
-                notes = Notes.objects.create(
-                    user=u,
-                    uploadingdate=date.today(),
-                    branch=b,
-                    subject=s,
-                    notesfile=n,
-                    filetype=f,
-                    description=d,
-                    status='Pending'
-                )
-                notes.save()
-                error = "no"
-            except Exception as e:
-                print(f"Error: {e}")
-                error = "yes"
-
-    d = {'error': error}
+        try:
+            Notes.objects.create(user = u, uploadingdate=date.today(), branch=b, subject=s, notesfile=n, filetype=f, description=d, status='pending')
+            error="no"
+        except:
+            print(error)
+            error="yes"    
+    d={'error':error}    
     return render(request, 'upload_notes.html', d)
