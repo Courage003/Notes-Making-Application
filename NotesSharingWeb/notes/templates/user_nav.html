@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
    
-  <title>Notes Sharing Site</title>
+  <title>Mowglipedia</title>
+  <link rel="icon" href="{% static 'css/images/favicon-32x32.png' %}" type="image/x-icon">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -35,7 +36,7 @@
             </li>
 
             <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Welcome {{request.user.fname}}</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Welcome&nbsp;{{request.user.fname}}</button>
                 <div class="dropdown-menu">
                     <a href="{% url 'profile' %}" class="dropdown-item">PROFILE</a>
                     <a href="{% url 'edit_profile' %}" class="dropdown-item">EDIT PROFILE</a>

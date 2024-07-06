@@ -27,4 +27,33 @@
 <!-- Add some spacing at the bottom of the page -->
 <div class="mb-5"></div>
 
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>About Us</h5>
+                <p>We are dedicated to providing the best study notes sharing platform.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <p>Email: hunteduteachinghub@gmail.com</p>
+                <p>Phone: +91 7248650548</p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <p>&copy; {% now "Y" %} Mowgli Vloggers. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
 {% endblock %}
