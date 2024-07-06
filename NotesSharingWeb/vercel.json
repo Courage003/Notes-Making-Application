@@ -1,0 +1,9 @@
+{
+    "builds": [
+      { "src": "NotesSharingWeb/wsgi.py", "use": "@vercel/python" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "NotesSharingWeb/wsgi.py" }
+    ]
+  }
+  
