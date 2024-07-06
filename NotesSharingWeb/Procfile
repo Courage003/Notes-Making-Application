@@ -1,1 +1,2 @@
+web: gunicorn NotesSharingWeb.wsgi --log-file -
 web: npm run start
