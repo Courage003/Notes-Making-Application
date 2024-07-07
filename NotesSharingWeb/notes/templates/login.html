@@ -3,14 +3,27 @@
 {% block body %}
 {% if error == "no" %}
 <script>
-    alert('Logged In Successfully');
-    window.location=('{% url 'profile' %}');
+    Swal.fire({
+        title: 'Success!',
+        text: 'Logged In Successfully',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '{% url 'profile' %}';
+        }
+    });
 </script>
 {% endif %}
 
 {% if error == "yes" %}
 <script>
-    alert("Invalid Login Credentials, Try Again");
+    Swal.fire({
+        title: 'Error!',
+        text: 'Invalid Login Credentials, Try Again',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
 </script>
 {% endif %}
 <div class="container mt-5">
