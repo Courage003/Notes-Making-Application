@@ -58,14 +58,23 @@
 
 {% if error == "no" %}
 <script>
-    alert('Notes Uploaded Successfully');
-    
+    Swal.fire({
+        title: 'Success!',
+        text: 'Notes Uploaded Successfully',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    });
 </script>
 {% endif %}
 
 {% if error == "yes" %}
 <script>
-    alert("Something went wrong, Try Again");
+    Swal.fire({
+        title: 'Error!',
+        text: 'Something went wrong, Try Again',
+        icon: 'error',
+        confirmButtonText: 'OK'
+    });
 </script>
 {% endif %}
 {% endblock %}
