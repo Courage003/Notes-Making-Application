@@ -3,6 +3,12 @@
 {% block body %}
 
 <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
     .image {
         width: 100%;
         height: 470px;
@@ -11,7 +17,7 @@
         background-repeat: no-repeat;
         background-position: center;
         position: relative;
-        opacity: 0.8; /* Adjust transparency here */
+        opacity: 0.8;
     }
 
     .transparent-box {
@@ -21,33 +27,49 @@
         transform: translate(-50%, -50%);
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
-        padding: 20px;
+        padding: 20px 40px;
         text-align: center;
-        border-radius: 8px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
     }
 
     .transparent-box p {
-        font-size: 40px; /* Increase font size for Mowglipedia */
+        font-size: 60px;
         margin-bottom: 0;
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        .transparent-box p {
+            font-size: 40px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .transparent-box p {
+            font-size: 30px;
+        }
     }
 
     .steps-container {
         padding: 50px 0;
-        background-color: #f9f9f9;
+        background-color: #f0f0f0;
     }
 
     .box1 {
         text-align: center;
-        padding: 20px;
-        background-color: #ffffff;
-        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        transition: transform 0.3s ease;
+        padding: 30px 20px;
+        background: linear-gradient(to right, #ffffff, #f7f7f7);
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
         min-height: 250px;
+        margin-bottom: 30px;
     }
 
     .box1:hover {
         transform: translateY(-10px);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .halfcircle {
@@ -65,6 +87,7 @@
     .halfcircleBottom {
         margin-top: 20px;
         font-size: 20px;
+        font-weight: 500;
     }
 
     footer {
@@ -88,17 +111,23 @@
 
     footer a {
         color: #ffffff;
+        transition: color 0.3s ease;
     }
 
     footer a:hover {
         text-decoration: none;
         color: #e67e22;
     }
+
+    .box1 i {
+        font-size: 40px;
+        color: white;
+    }
 </style>
 
 <div class="image">
     <div class="transparent-box">
-        <center><p style="font-size: 60px;">Mowglipedia</p></center> <!-- Adjust font size here -->
+        <p>Mowglipedia</p>
     </div>
 </div>
 
@@ -106,44 +135,44 @@
 
 <div class="container steps-container">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-6 col-md-3">
             <div class="box1">
-                <p class="halfcircle">
-                    <i class="fas fa-user-circle mt-4" style="font-size: 40px;"></i>
-                </p>
+                <div class="halfcircle">
+                    <i class="fas fa-user-circle mt-3"></i>
+                </div>
                 <p class="halfcircleBottom">
                     Create Account
                 </p>
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-6 col-md-3">
             <div class="box1">
-                <p class="halfcircle">
-                    <i class="fas fa-sign-in-alt mt-4" style="font-size: 40px;"></i>
-                </p>
+                <div class="halfcircle">
+                    <i class="fas fa-sign-in-alt mt-3"></i>
+                </div>
                 <p class="halfcircleBottom">
                     Login
                 </p>
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-6 col-md-3">
             <div class="box1">
-                <p class="halfcircle">
-                    <i class="fas fa-cloud-upload-alt mt-4" style="font-size: 40px;"></i>
-                </p>
+                <div class="halfcircle">
+                    <i class="fas fa-cloud-upload-alt mt-3"></i>
+                </div>
                 <p class="halfcircleBottom">
                     Upload Notes
                 </p>
             </div>
         </div>
 
-        <div class="col-sm-3">
+        <div class="col-sm-6 col-md-3">
             <div class="box1">
-                <p class="halfcircle">
-                    <i class="fas fa-cloud-download-alt mt-4" style="font-size: 40px;"></i>
-                </p>
+                <div class="halfcircle">
+                    <i class="fas fa-cloud-download-alt mt-3"></i>
+                </div>
                 <p class="halfcircleBottom">
                     Download Notes
                 </p>
@@ -155,26 +184,38 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>About Us</h5>
                 <p>We are dedicated to providing the best study notes sharing platform.</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Quick Links</h5>
-                <ul class="list-unstyled">
+                <ul>
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <h5>Contact Us</h5>
-                <p>Email: hunteduteachinghub@gmail.com</p>
-                <p>Phone: +91 7248650548</p>
+                <p>Email: <a href="mailto:hunteduteachinghub@gmail.com">hunteduteachinghub@gmail.com</a></p>
+                <p>Phone: <a href="tel:+917248650548">+91 7248650548</a></p>
+            </div>
+            <div class="col-md-3">
+                <h5>Feedback</h5>
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="feedbackEmail" placeholder="Your email">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Your feedback"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-md-12">
+            <div class="col-md-12 text-center">
                 <p>&copy; {% now "Y" %} Mowgli Vloggers. All rights reserved.</p>
             </div>
         </div>
