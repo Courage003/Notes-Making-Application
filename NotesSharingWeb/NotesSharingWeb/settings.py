@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-#u^#=+i3-m_cr9zduw9i^7up8c55s6)ybdsxrmq++_x0nm1u&@
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://notes-making-application-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://notes-making-application-production.up.railway.app']
 
 
 
