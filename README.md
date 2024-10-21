@@ -1,55 +1,73 @@
-Mowglipedia - Notes Sharing Website
+# Mowglipedia - Notes Sharing Website
+
 A collaborative platform for students to upload and download academic notes. This project aims to simplify access to educational resources by allowing students to share their notes with each other.
 
+---
 
+## Table of Contents
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Run Migrations](#run-migrations)
+  - [Running the Application](#running-the-application)
+- [Usage](#usage)
+  - [Uploading Notes](#uploading-notes)
+  - [Downloading Notes](#downloading-notes)
+  - [Admin Panel](#admin-panel)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Table of Contents
-About the Project
-Features
-Tech Stack
-Getting Started
-Prerequisites
-Installation
-Environment Variables
-Run Migrations
-Running the Application
-Usage
-Contributing
-License
-Contact
-About the Project
+---
+
+## About the Project
+
 Mowglipedia is a Django-based web application designed for students to share their academic notes. It provides a centralized platform where students can easily upload, download, and search for study materials. The system also includes an admin approval process to ensure the quality and relevance of uploaded notes.
 
+---
 
-Features
- User authentication (Sign up, Login, Logout)
- Notes upload functionality
- Admin approval for uploaded notes
- Downloadable notes after admin approval
- Search and filter by subject or category
- User profile to manage uploaded notes
-Tech Stack
-Django - Web framework
-Python - Backend logic
-PostgreSQL / SQLite - Database for storing users and notes data
-HTML / CSS / JavaScript - Frontend technologies
-Bootstrap - Responsive UI framework
-Getting Started
+## Features
+
+- User authentication (Sign up, Login, Logout)
+- Notes upload functionality
+- Admin approval for uploaded notes
+- Downloadable notes after admin approval
+- Search and filter by subject or category
+- User profile to manage uploaded notes
+
+---
+
+## Tech Stack
+
+- **Django** - Web framework
+- **Python** - Backend logic
+- **PostgreSQL / SQLite** - Database for storing users and notes data
+- **HTML / CSS / JavaScript** - Frontend technologies
+- **Bootstrap** - Responsive UI framework
+
+---
+
+## Getting Started
+
 Follow these instructions to get a copy of the project running on your local machine.
 
-Prerequisites
-You need to have Python and Django installed on your system. Make sure you have pip and virtualenv available:
+### Prerequisites
 
-bash
-Copy code
+You need to have Python and Django installed on your system. Make sure you have `pip` and `virtualenv` available:
+
+```bash
 # Install virtualenv if you don't have it
 pip install virtualenv
 Installation
 Clone the repository:
 bash
 Copy code
-git clone https://github.com/yourusername/mowglipedia.git
-cd mowglipedia
+git clone https://github.com/Courage003/Notes-Making-Application.git
+cd Notes-Making-Application
 Create and activate a virtual environment:
 bash
 Copy code
@@ -107,11 +125,11 @@ Visit http://127.0.0.1:8000/admin/ to log in and manage notes.
 Contributing
 We welcome contributions! To contribute:
 
-Fork the repository
-Create a new branch (git checkout -b feature/NewFeature)
-Make your changes and commit (git commit -m 'Add some NewFeature')
-Push to your branch (git push origin feature/NewFeature)
-Open a pull request
+Fork the repository.
+Create a new branch (git checkout -b feature/NewFeature).
+Make your changes and commit (git commit -m 'Add some NewFeature').
+Push to your branch (git push origin feature/NewFeature).
+Open a pull request.
 Guidelines
 Ensure your code follows Django best practices.
 Write clear commit messages.
@@ -122,4 +140,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Contact
 Dhruv Rohatgi – rohatgidhruv28@gmail.com
 
-Project Link: [(https://github.com/Courage003/Notes-Making-Application)](https://notes-making-application-production.up.railway.app/)
+Project Link: https://github.com/Courage003/Notes-Making-Application
